@@ -1,8 +1,8 @@
 FROM java:8-jre
 MAINTAINER Vladimir Orany <vladimir@orany.cz>
 
-ENV MUTLISHARE_DOWNLOADER_DOWNLOADS_FOLDER  /opt/downloads
-RUN mkdir -p "$MUTLISHARE_DOWNLOADER_DOWNLOADS_FOLDER"
+ENV MULTISHARE_DOWNLOADER_DOWNLOADS_FOLDER  /opt/downloads
+RUN mkdir -p "$MULTISHARE_DOWNLOADER_DOWNLOADS_FOLDER"
 
 ENV MULTISHARE_DOWNLOADER_HOME /usr/local/multishare-downloader
 ENV PATH $MULTISHARE_DOWNLOADER_HOME/bin:$PATH
@@ -17,4 +17,6 @@ RUN  set -x \
   && tar -xvf multishare-downloader.tar.gz --strip-components=1 \
   && rm multishare-downloader.tar.gz
 
-CMD ['/bin/bash']
+COPY entrypoint.sh entrypoint.sh
+
+ENTRYPOINT ['./entrypoint.sh']
