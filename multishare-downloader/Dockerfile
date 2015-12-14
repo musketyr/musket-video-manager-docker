@@ -16,3 +16,5 @@ RUN  set -x \
   && curl -fSL "$MULTISHARE_DOWNLOADER_URL" -o multishare-downloader.tar.gz \
   && tar -xvf multishare-downloader.tar.gz --strip-components=1 \
   && rm multishare-downloader.tar.gz
+
+CMD ['/bin/bash']
