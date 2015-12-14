@@ -13,6 +13,6 @@ ENV MULTISHARE_DOWNLOADER_VERSION 0.0.3
 ENV MULTISHARE_DOWNLOADER_URL https://github.com/musketyr/musket-video-manager/releases/download/$MULTISHARE_DOWNLOADER_VERSION/multishare-downloader.tar.gz
 
 RUN  set -x \
-  && curl -fSL "$MULTISHARE_DOWNLOADER_VERSION" -o multishare-downloader.tar.gz \
+  && curl -fSL "$MULTISHARE_DOWNLOADER_URL" -o multishare-downloader.tar.gz \
   && tar -xvf multishare-downloader.tar.gz --strip-components=1 \
   && rm multishare-downloader.tar.gz
